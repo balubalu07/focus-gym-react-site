@@ -26,12 +26,10 @@ const Footer = () => {
           </div>
 
           <div>
-            <h4 className="text-lg font-semibold mb-4">Services</h4>
+            <h4 className="text-lg font-semibold mb-4">Legal</h4>
             <ul className="space-y-2 text-gray-400">
-              <li>Personal Training</li>
-              <li>Group Classes</li>
-              <li>Nutrition Coaching</li>
-              <li>Recovery Services</li>
+              <li><a href="/terms" className="hover:text-gym-red transition-colors">Terms & Conditions</a></li>
+              <li><a href="/privacy" className="hover:text-gym-red transition-colors">Privacy Policy</a></li>
             </ul>
           </div>
 
