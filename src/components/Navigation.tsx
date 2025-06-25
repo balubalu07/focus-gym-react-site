@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 
@@ -29,7 +28,12 @@ const Navigation = () => {
     }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
+          <div className="flex items-center space-x-3">
+            <img 
+              src="/assets/redLogoWithoutBg.jpg" 
+              alt="Focus Gym Logo" 
+              className="h-10 w-10 object-contain"
+            />
             <span className="text-2xl font-bold text-white">
               Focus <span className="text-gym-red">Gym</span>
             </span>
