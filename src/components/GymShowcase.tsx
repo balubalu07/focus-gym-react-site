@@ -48,7 +48,7 @@ const GymShowcase = () => {
             Gheorghe. Un loc unde progresul e personal, și fiecare pas înainte e
             sărbătorit. Te așteptăm. Nu ca să fii altcineva, ci ca să devii cea
             mai bună versiune a ta. Hai să ne cunoști. Promitem că vei simți
-            diferența de la prima vizită. Focus Gym – Putere fizică. Echilibru
+            diferența de la prima vizită. Focus Gym – Putere fizică, Echilibru
             mental. Nimic fără FOCUS.
           </p>
         </div>

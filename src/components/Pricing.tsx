@@ -6,13 +6,13 @@ const Pricing = () => {
   const plans = [
     {
       name: "Morning Pass",
-      price: "25 lei",
+      price: "120 lei",
       period: "/day",
       features: [
         "Acces la echipamente de sală",
         "Acces la vestiare",
-        "Evaluare de bază a condiției fizice",
         "Acces la aplicația mobilă",
+        "7-12",
       ],
       popular: false,
     },
@@ -23,7 +23,6 @@ const Pricing = () => {
       features: [
         "Acces la echipamente de sală",
         "Acces la vestiare",
-        "Evaluare de bază a condiției fizice",
         "Acces la aplicația mobilă",
       ],
       popular: true,
@@ -35,7 +34,6 @@ const Pricing = () => {
       features: [
         "Acces la echipamente de sală",
         "Acces la vestiare",
-        "Evaluare de bază a condiției fizice",
         "Acces la aplicația mobilă",
       ],
       popular: false,
