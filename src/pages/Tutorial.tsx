@@ -4,7 +4,9 @@ import { ArrowLeft } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
-
+import phone1 from "@/assets/tutorial1.png";
+import phone2 from "@/assets/tutorial2.png";
+import phone3 from "@/assets/tutorial3.png";
 const Tutorial = () => {
   const navigate = useNavigate();
 
@@ -34,7 +36,7 @@ const Tutorial = () => {
             <section className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <img
-                  src="../../assets/tutorial1.png"
+                  src={phone1}
                   alt="Step 1"
                   className="rounded-xl shadow-lg"
                 />
@@ -63,7 +65,7 @@ const Tutorial = () => {
               </div>
               <div className="order-1 lg:order-2">
                 <img
-                  src="../../assets/tutorial2.png"
+                  src={phone2}
                   alt="Step 2"
                   className="rounded-xl shadow-lg"
                 />
@@ -73,7 +75,7 @@ const Tutorial = () => {
             <section className="grid lg:grid-cols-2 gap-12 items-center">
               <div>
                 <img
-                  src="../../assets/tutorial3.png"
+                  src={phone3}
                   alt="Step 3"
                   className="rounded-xl shadow-lg"
                 />

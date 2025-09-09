@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useLocation, useNavigate } from "react-router-dom"; // Import hooks
-
+import logo from "@/assets/redLogoWithoutBg.jpg";
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -48,7 +48,7 @@ const Navigation = () => {
           <div className="flex flex-1 items-center">
             {/* Logo */}
             <img
-              src="/assets/redLogoWithoutBg.jpg"
+              src={logo}
               alt="Focus Gym Logo"
               className="h-[110px] w-auto object-contain cursor-pointer"
               onClick={handleLogoClick} // Add onClick to the logo

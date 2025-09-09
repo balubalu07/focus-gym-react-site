@@ -1,7 +1,8 @@
 import React from "react";
 import { Facebook, Instagram } from "lucide-react";
 import { Link } from "react-router-dom"; // Import Link from react-router-dom
-
+import sal from "@/assets/anpc-sal.png";
+import sol from "@/assets/anpc-sol.png";
 const Footer = () => {
   return (
     <footer className="bg-gym-dark text-white py-12">
@@ -81,12 +82,12 @@ const Footer = () => {
           {/* Column 3: ANPC Images */}
           <div className="flex flex-col items-center space-y-4">
             <img
-              src="/assets/anpc-sal.png"
+              src={sal}
               alt="ANPC SAL"
               className="h-[62px] w-auto object-contain"
             />
             <img
-              src="/assets/anpc-sol.png"
+              src={sol}
               alt="ANPC SOL"
               className="h-[65px] w-auto object-contain"
             />

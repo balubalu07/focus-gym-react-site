@@ -1,5 +1,8 @@
 import React from "react";
-
+import phone from "@/assets/GMAApp.png";
+import googlePlay from "@/assets/GooglePlay.jpeg";
+import ios from "@/assets/AppStore.jpeg";
+import { Link } from "react-router-dom";
 const MobileApp = () => {
   return (
     <section
@@ -20,7 +23,7 @@ const MobileApp = () => {
 
               <div className="relative bg-white rounded-3xl shadow-2xl p-8 transform group-hover:-rotate-1 transition-transform duration-500">
                 <img
-                  src="assets/GMAApp.png"
+                  src={phone}
                   alt="Focus Gym Mobile App"
                   className="w-full h-[500px] object-contain animate-fade-in transform group-hover:scale-105 transition-transform duration-500"
                 />
@@ -54,7 +57,7 @@ const MobileApp = () => {
                 >
                   <div className="bg-white rounded-2xl p-4 shadow-lg group-hover:shadow-2xl transition-shadow duration-300">
                     <img
-                      src="/assets/GooglePlay.jpeg"
+                      src={googlePlay}
                       alt="Google Play Store"
                       className="w-48 h-auto"
                     />
@@ -70,11 +73,7 @@ const MobileApp = () => {
                   className="relative block transform hover:scale-110 transition-all duration-300 hover:shadow-2xl"
                 >
                   <div className="bg-white rounded-2xl p-4 shadow-lg group-hover:shadow-2xl transition-shadow duration-300">
-                    <img
-                      src="/assets/AppStore.jpeg"
-                      alt="App Store"
-                      className="w-48 h-auto"
-                    />
+                    <img src={ios} alt="App Store" className="w-48 h-auto" />
                   </div>
                 </a>
               </div>
@@ -84,8 +83,8 @@ const MobileApp = () => {
             <div className="text-center animate-fade-in">
               <div className="relative inline-block group">
                 <div className="absolute inset-0 bg-gym-red/20 rounded-full blur-sm group-hover:blur-md transition-all duration-300"></div>
-                <a
-                  href="/tutorial"
+                <Link
+                  to="/tutorial"
                   className="relative inline-flex items-center space-x-2 bg-white text-gym-red font-semibold px-6 py-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gym-red hover:text-white border-2 border-gym-red/20 hover:border-gym-red"
                 >
                   <span>
@@ -104,7 +103,7 @@ const MobileApp = () => {
                       d="M9 5l7 7-7 7"
                     />
                   </svg>
-                </a>
+                </Link>
               </div>
             </div>
           </div>

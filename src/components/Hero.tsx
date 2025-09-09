@@ -1,13 +1,13 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
-
+import bgImage from "@/assets/4.jpg";
 const Hero = () => {
   return (
     <section className="relative min-h-screen bg-gym-dark flex items-center justify-center overflow-hidden">
       {/* <div className="absolute inset-0 bg-[length:400%_400%] animate-gradient-bg bg-gradient-to-r from-gym-dark via-gym-red to-gym-dark opacity-90" /> */}
       <div className="absolute inset-0 z-0">
         <img
-          src="../../assets/4.jpg"
+          src={bgImage}
           alt="Background"
           className="w-full h-full object-cover"
         />

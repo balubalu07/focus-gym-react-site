@@ -6,26 +6,29 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-
+import img1 from "@/assets/1.jpg";
+import img2 from "@/assets/2.jpg";
+import img5 from "@/assets/5.jpg";
+import img3 from "@/assets/3.jpg";
 const GymShowcase = () => {
   const gymImages = [
     {
-      src: "../../assets/1.jpg",
+      src: img1,
       alt: "Modern Gym Equipment",
       title: "State-of-the-Art Equipment",
     },
     {
-      src: "../../assets/2.jpg",
+      src: img2,
       alt: "Gym Interior",
       title: "Spacious Training Areas",
     },
     {
-      src: "../../assets/5.jpg",
+      src: img5,
       alt: "Group Training",
       title: "Group Fitness Classes",
     },
     {
-      src: "../../assets/3.jpg",
+      src: img3,
       alt: "Cardio Area",
       title: "Premium Cardio Zone",
     },
