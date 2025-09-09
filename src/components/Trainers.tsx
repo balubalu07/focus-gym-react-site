@@ -1,69 +1,70 @@
-
-import React from 'react';
-import { Card, CardContent } from '@/components/ui/card';
+import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
 
 const Trainers = () => {
   const trainers = [
     {
-      name: "Sarah Johnson",
-      specialty: "Strength & Conditioning",
-      experience: "8 years",
-      bio: "Former competitive athlete specializing in strength training and athletic performance.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop&crop=face"
+      name: "Mihail Panait",
+      experience: "3 years",
+      bio: "Misiunea mea este să te ajut să îți atingi obiectivele – fie că vrei să slăbești, să pui masă musculară sau pur și simplu să îți menții un stil de viață activ și sănătos.",
+      image: "../../assets/trainer1.jpg",
     },
     {
-      name: "Mike Rodriguez",
-      specialty: "CrossFit & HIIT",
-      experience: "6 years",
-      bio: "CrossFit Level 3 trainer passionate about functional fitness and metabolic conditioning.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop&crop=face"
+      name: "Sandu Alexandru",
+      experience: "13 years",
+      bio: "Sunt pasionat de bodybuilding și am concurat la nivel competițional. Știu ce înseamnă să-ți transformi corpul, iar eu te pot ghida pas cu pas să-ți atingi obiectivele. Fără scurtături, doar rezultate reale – și un corp de care să fii mândru.",
+      image: "../../assets/trainer2.jpg",
     },
     {
-      name: "Emma Chen",
-      specialty: "Yoga & Wellness",
-      experience: "10 years",
-      bio: "Certified yoga instructor focusing on mind-body connection and holistic wellness.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop&crop=face"
+      name: "Antal Petre",
+      experience: "7 years",
+      bio: "Îmi place să ajut oamenii să devină mai flexibili și să se simtă bine în corpul lor prin antrenamente personalizate și tehnici moderne.",
+      image: "../../assets/trainer3.jpg",
     },
     {
-      name: "David Thompson",
-      specialty: "Boxing & Combat",
-      experience: "12 years",
-      bio: "Former professional boxer bringing authentic combat training to fitness enthusiasts.",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=400&h=400&fit=crop&crop=face"
-    }
+      name: "Miklos Ciocîrlan",
+      experience: "4 years",
+      bio: "Sunt aici să te ajut să îți crești rezistența și să îți atingi obiectivele cardio prin antrenamente eficiente și distractive.",
+      image: "../../assets/trainer4.jpg",
+    },
   ];
 
   return (
-    <section id="trainers" className="py-20 bg-white">
+    <section id="trainers" className="py-20 bg-gym-dark text-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-gym-dark mb-6">
-            Meet Your <span className="text-gym-red">Trainers</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Faceți cunoștință cu <span className="text-gym-red">Antrenori</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Our certified trainers are here to guide, motivate, and help you achieve your fitness goals.
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            Antrenorii noștri certificați sunt aici pentru a vă ghida, motiva și
+            ajuta să vă atingeți obiectivele de fitness.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {/* Horizontal scroll container */}
+        <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory">
           {trainers.map((trainer, index) => (
-            <Card 
-              key={index} 
-              className="text-center hover:shadow-xl transition-all duration-300 transform hover:scale-105 border-none"
+            <Card
+              key={index}
+              className="flex-none w-64 md:w-72 lg:w-80 bg-white/10 backdrop-blur-sm text-white border-gym-red/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 snap-center"
             >
-              <CardContent className="p-6">
+              <CardContent className="p-6 text-center flex flex-col">
                 <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden">
-                  <img 
-                    src={trainer.image} 
+                  <img
+                    src={trainer.image}
                     alt={trainer.name}
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="text-xl font-bold text-gym-dark mb-2">{trainer.name}</h3>
-                <p className="text-gym-red font-semibold mb-2">{trainer.specialty}</p>
-                <p className="text-gray-500 text-sm mb-4">{trainer.experience} experience</p>
-                <p className="text-gray-600 text-sm">{trainer.bio}</p>
+                <h3 className="text-xl font-bold mb-2">{trainer.name}</h3>
+                {/* <p className="text-gym-red font-semibold mb-2">
+                  {trainer.specialty}
+                </p> */}
+                <p className="text-gym-red font-semibold mb-2">
+                  {trainer.experience} experience
+                </p>
+                <p className="text-gray-300 text-sm">{trainer.bio}</p>
               </CardContent>
             </Card>
           ))}

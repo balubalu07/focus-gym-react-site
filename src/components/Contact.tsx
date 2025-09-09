@@ -1,37 +1,38 @@
-
-import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { useToast } from '@/hooks/use-toast';
+import React, { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { useToast } from "@/hooks/use-toast";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
   });
 
   const { toast } = useToast();
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
+    console.log("Form submitted:", formData);
     toast({
       title: "Message Sent!",
       description: "Thank you for your interest. We'll contact you soon!",
     });
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
   return (
@@ -39,90 +40,62 @@ const Contact = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Start Your <span className="text-gym-red">Journey</span>
+            Începe-ți <span className="text-gym-red">Călătoria</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Ready to transform your life? Get in touch with us today and take the first step towards a healthier you.
+            Ești gata să-ți transformi viața? Contactează-ne astăzi și fă primul
+            pas către o viață mai sănătoasă.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
-          <Card className="bg-white/10 backdrop-blur-sm border-gym-red/20">
-            <CardHeader>
-              <CardTitle className="text-2xl text-white">Send us a message</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <Input
-                  name="name"
-                  placeholder="Your Name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  required
-                  className="bg-white/20 border-white/30 text-white placeholder:text-gray-300"
-                />
-                <Input
-                  name="email"
-                  type="email"
-                  placeholder="Your Email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  className="bg-white/20 border-white/30 text-white placeholder:text-gray-300"
-                />
-                <Input
-                  name="phone"
-                  placeholder="Your Phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  className="bg-white/20 border-white/30 text-white placeholder:text-gray-300"
-                />
-                <Textarea
-                  name="message"
-                  placeholder="Tell us about your fitness goals..."
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  required
-                  rows={4}
-                  className="bg-white/20 border-white/30 text-white placeholder:text-gray-300"
-                />
-                <Button 
-                  type="submit"
-                  className="w-full bg-gym-red hover:bg-gym-red/80 text-white font-bold py-3"
-                >
-                  Send Message
-                </Button>
-              </form>
-            </CardContent>
+          <Card className="overflow-hidden bg-white/10 backdrop-blur-sm border-gym-red/20">
+            <div className="h-full w-full aspect-video lg:aspect-square">
+              <iframe
+                title="Gym Location"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2778.3524118468295!2d25.79938587695038!3d45.86425850665645!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40b4a51627379679%3A0x733797801759e084!2sFocusGym!5e0!3m2!1shu!2sro!4v1750888154008!5m2!1shu!2sro"
+                width="100%"
+                height="100%"
+                allowFullScreen
+                loading="lazy"
+                className="border-0 w-full h-full"
+              ></iframe>
+            </div>
           </Card>
 
-          <div className="space-y-8">
+          <div className="flex flex-col justify-between h-full space-y-8">
             <Card className="bg-white/10 backdrop-blur-sm border-gym-red/20">
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold text-white mb-4">Visit Our Gym</h3>
+                <h3 className="text-xl font-bold text-white mb-4">
+                  Vizitați sala noastră de sport
+                </h3>
                 <div className="space-y-3 text-gray-300">
-                  <p>📍 123 Fitness Street, Downtown City, DC 12345</p>
-                  <p>📞 (555) 123-4567</p>
-                  <p>✉️ info@focusgym.com</p>
+                  <p>
+                    📍 Strada 1 Decembrie 1918 bl 12, Sfântu Gheorghe 520076
+                  </p>
+                  <p>📞 0742464683</p>
+                  <p>✉️ focusgymsepsi@gmail.com</p>
                 </div>
               </CardContent>
             </Card>
 
             <Card className="bg-white/10 backdrop-blur-sm border-gym-red/20">
               <CardContent className="p-6">
-                <h3 className="text-xl font-bold text-white mb-4">Opening Hours</h3>
+                <h3 className="text-xl font-bold text-white mb-4">
+                  Program de funcționare
+                </h3>
                 <div className="space-y-2 text-gray-300">
                   <div className="flex justify-between">
-                    <span>Monday - Friday</span>
-                    <span>5:00 AM - 11:00 PM</span>
+                    <span>Luni - Vineri</span>
+                    <span>7:00 - 22:00</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Saturday</span>
-                    <span>6:00 AM - 10:00 PM</span>
+                    <span>Sâmbătă</span>
+                    <span>9:00 - 20:00</span>
                   </div>
                   <div className="flex justify-between">
-                    <span>Sunday</span>
-                    <span>7:00 AM - 9:00 PM</span>
+                    <span>Duminică</span>
+                    <span>9:00 - 20:00</span>
                   </div>
                 </div>
               </CardContent>

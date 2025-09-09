@@ -1,35 +1,40 @@
-
-import React from 'react';
-import { Button } from '@/components/ui/button';
+import React from "react";
+import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   return (
     <section className="relative min-h-screen bg-gym-dark flex items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-br from-gym-dark via-gym-dark/90 to-gym-red/20"></div>
-      
+      {/* <div className="absolute inset-0 bg-[length:400%_400%] animate-gradient-bg bg-gradient-to-r from-gym-dark via-gym-red to-gym-dark opacity-90" /> */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="../../assets/4.jpg"
+          alt="Background"
+          className="w-full h-full object-cover"
+        />
+        {/* Blur Overlay */}
+        <div className="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+      </div>
       <div className="relative z-10 text-center max-w-4xl mx-auto px-4 animate-fade-in">
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-          UNLEASH YOUR
-          <span className="block text-gym-red">POTENTIAL</span>
+          ELIBEREAȚI-VĂ
+          <span className="block text-gym-red">POTENȚIAL</span>
         </h1>
-        
+
         <p className="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
-          Transform your body, mind, and spirit at Focus Gym. Where dedication meets results.
+          Transformați-vă corpul, mintea și spiritul la Focus Gym. Unde
+          dedicarea se întâlnește cu rezultatele.
         </p>
-        
+
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Button 
-            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+          <Button
+            onClick={() =>
+              document
+                .getElementById("app")
+                ?.scrollIntoView({ behavior: "smooth" })
+            }
             className="bg-gym-red hover:bg-gym-red/80 text-white font-bold px-8 py-4 text-lg transition-all duration-300 transform hover:scale-105"
           >
-            JOIN NOW
-          </Button>
-          <Button 
-            onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-            variant="outline" 
-            className="border-white text-white hover:bg-white hover:text-gym-dark font-bold px-8 py-4 text-lg transition-all duration-300"
-          >
-            LEARN MORE
+            ÎNSCRIE-TE ACUM
           </Button>
         </div>
       </div>
