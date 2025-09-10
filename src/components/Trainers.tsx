@@ -1,32 +1,34 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import trainer1 from "@/assets/trainer1.jpg";
-import trainer2 from "@/assets/trainer2.jpg";
+import trainer1 from "@/assets/trainer1.jpeg";
+import trainer2 from "@/assets/trainer2.jpeg";
+import trainer3 from "@/assets/trainer3.jpeg";
+import trainer4 from "@/assets/trainer4.jpeg";
 const Trainers = () => {
   const trainers = [
     {
       name: "Mihail Panait",
       experience: "3 years",
-      bio: "Misiunea mea este să te ajut să îți atingi obiectivele – fie că vrei să slăbești, să pui masă musculară sau pur și simplu să îți menții un stil de viață activ și sănătos.",
-      image: trainer1,
+      bio: "Pasionat de sport și sănătate, te ajut să slăbești, să câștigi masă musculară sau să menții un stil de viață activ. Ofer antrenamente personalizate, sfaturi de nutriție și motivația de care ai nevoie pentru rezultate reale și durabile.",
+      image: trainer2,
     },
     {
       name: "Sandu Alexandru",
       experience: "13 years",
-      bio: "Sunt pasionat de bodybuilding și am concurat la nivel competițional. Știu ce înseamnă să-ți transformi corpul, iar eu te pot ghida pas cu pas să-ți atingi obiectivele. Fără scurtături, doar rezultate reale – și un corp de care să fii mândru.",
-      image: trainer2,
+      bio: "Sunt pasionat de bodybuilding și am concurat la nivel competițional. Știu ce înseamnă să-ți transformi corpul, iar eu te pot ghida pas cu pas să-ți atingi obiectivele. Fără scurtături, doar rezultate reale și un corp de care să fii mândru.",
+      image: trainer1,
     },
     {
       name: "Antal Petre",
       experience: "7 years",
-      bio: "Îmi place să ajut oamenii să devină mai flexibili și să se simtă bine în corpul lor prin antrenamente personalizate și tehnici moderne.",
-      image: "hey",
+      bio: "Pentru mine, fitnessul înseamnă mai mult decât alergare și aparate  înseamnă energie, echilibru și progres real. La FocusGym te ghidez să-ți crești nivelul de energie, să-ți construiești un trup armonios și să-ți depășești limitele, prin antrenamente eficiente și motivate.",
+      image: trainer3,
     },
     {
       name: "Miklos Ciocîrlan",
       experience: "4 years",
-      bio: "Sunt aici să te ajut să îți crești rezistența și să îți atingi obiectivele cardio prin antrenamente eficiente și distractive.",
-      image: "beey",
+      bio: "Te ajut să devii mai fit, mai sănătos și să te miști fără dureri, prin antrenamente personalizate la FocusGym. Pun accent pe mobilitate, stretching și întărirea mușchilor stabilizatori, ca să ai rezultate durabile și o viață plină de energie. Vino să descoperi antrenamente eficiente, într-o atmosferă prietenoasă și motivațională.",
+      image: trainer4,
     },
   ];
 

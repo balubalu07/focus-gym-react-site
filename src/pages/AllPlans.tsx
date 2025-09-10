@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 
-const Pricing = () => {
+const AllPlans = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   const plans = [
     {
       name: "Morning Pass",
@@ -39,28 +48,58 @@ const Pricing = () => {
       ],
       popular: false,
     },
+    {
+      name: "Weekend Pass",
+      price: "90 lei",
+      period: "/weekend",
+      features: [
+        "Acces în zilele de weekend",
+        "Acces la vestiare",
+        "Acces la aplicația mobilă",
+      ],
+      popular: false,
+    },
+    {
+      name: "VIP Pass",
+      price: "250 lei",
+      period: "/month",
+      features: [
+        "Acces nelimitat",
+        "Acces la vestiare VIP",
+        "Antrenor personal",
+        "Acces la aplicația mobilă",
+      ],
+      popular: false,
+    },
   ];
 
   return (
-    <section id="pricing" className="py-28 bg-gym-dark text-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center pb-16 mb-12 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            Alegeți-vă <span className="text-gym-red">Planul</span>
-          </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Opțiuni flexibile de abonament, concepute pentru a se potrivi
-            stilului tău de viață și obiectivelor tale de fitness.
-          </p>
-        </div>
-        <div className="px-4 sm:px-6 lg:px-0">
+    <div className="min-h-screen bg-gym-dark">
+      <Navigation />
+      <div className="pt-20 pb-12">
+        <div className="container mx-auto px-4 max-w-6xl">
+          {/* Back Button */}
+          <Button
+            onClick={() => navigate("/")}
+            variant="ghost"
+            className="mb-6 text-white hover:text-gym-red hover:bg-white/10 p-2"
+          >
+            <ArrowLeft className="w-5 h-5 mr-2" />
+            Back to Home
+          </Button>
+
+          <h1 className="text-4xl font-bold text-white mb-12 text-center">
+            Toate Planurile de Abonament
+          </h1>
+
+          {/* Pricing Grid */}
           <div className="grid md:grid-cols-3 gap-16 items-start">
             {plans.map((plan, index) => (
               <Card
                 key={index}
                 className={`relative transition-all duration-300 transform ${
                   plan.popular
-                    ? "bg-white/20 backdrop-blur-md border-gym-red border-4 shadow-lg md:scale-110 md:-translate-y-4 hover:scale-115"
+                    ? "bg-white/20 backdrop-blur-md border-gym-red border-4 shadow-lg md:scale-105 hover:scale-110"
                     : "bg-white/10 backdrop-blur-sm border-gray-700 border hover:scale-105"
                 }`}
               >
@@ -71,11 +110,7 @@ const Pricing = () => {
                     </span>
                   </div>
                 )}
-                <CardHeader
-                  className={`text-center p-10 ${
-                    plan.popular ? "min-h-[200px]" : "min-h-[160px]"
-                  }`}
-                >
+                <CardHeader className="text-center p-10">
                   <CardTitle
                     className={`${
                       plan.popular
@@ -96,16 +131,8 @@ const Pricing = () => {
                     <span className="text-gray-400">{plan.period}</span>
                   </div>
                 </CardHeader>
-                <CardContent
-                  className={`p-8 ${
-                    plan.popular ? "min-h-[350px]" : "min-h-[300px]"
-                  }`}
-                >
-                  <ul
-                    className={`space-y-3 mb-8 text-gray-200 ${
-                      plan.popular ? "text-lg" : "text-base"
-                    }`}
-                  >
+                <CardContent className="p-8">
+                  <ul className="space-y-3 mb-8 text-gray-200">
                     {plan.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-center">
                         <span className="text-gym-red mr-3">✓</span>
@@ -119,11 +146,6 @@ const Pricing = () => {
                         ? "bg-gym-red hover:bg-gym-red/80 text-white"
                         : "bg-gray-800 hover:bg-gray-700 text-white"
                     }`}
-                    onClick={() =>
-                      document
-                        .getElementById("contact")
-                        ?.scrollIntoView({ behavior: "smooth" })
-                    }
                   >
                     Get Started
                   </Button>
@@ -131,31 +153,11 @@ const Pricing = () => {
               </Card>
             ))}
           </div>
-          <div className="text-center mt-16">
-            <Link
-              to="/all-plans"
-              className="relative inline-flex items-center space-x-2 bg-gym-red text-white font-bold px-8 py-4 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:bg-gym-red/80"
-            >
-              <span>See All Plans</span>
-              <svg
-                className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </Link>
-          </div>
         </div>
       </div>
-    </section>
+      <Footer />
+    </div>
   );
 };
 
-export default Pricing;
+export default AllPlans;

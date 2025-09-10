@@ -8,29 +8,51 @@ import {
 } from "@/components/ui/carousel";
 import img1 from "@/assets/1.jpg";
 import img2 from "@/assets/2.jpg";
-import img5 from "@/assets/5.jpg";
 import img3 from "@/assets/3.jpg";
+import img6 from "@/assets/6.jpg";
+import img7 from "@/assets/7.jpg";
+import img8 from "@/assets/8.jpg";
+import img9 from "@/assets/9.jpg";
+import img10 from "@/assets/10.jpg";
+import img11 from "@/assets/11.jpg";
+
 const GymShowcase = () => {
   const gymImages = [
     {
       src: img1,
       alt: "Modern Gym Equipment",
-      title: "State-of-the-Art Equipment",
     },
     {
       src: img2,
       alt: "Gym Interior",
-      title: "Spacious Training Areas",
     },
     {
-      src: img5,
+      src: img6,
       alt: "Group Training",
-      title: "Group Fitness Classes",
     },
     {
       src: img3,
       alt: "Cardio Area",
-      title: "Premium Cardio Zone",
+    },
+    {
+      src: img7,
+      alt: "Cardio Area",
+    },
+    {
+      src: img8,
+      alt: "Cardio Area",
+    },
+    {
+      src: img9,
+      alt: "Cardio Area",
+    },
+    {
+      src: img10,
+      alt: "Cardio Area",
+    },
+    {
+      src: img11,
+      alt: "Cardio Area",
     },
   ];
 
@@ -79,9 +101,6 @@ const GymShowcase = () => {
                       <div className="absolute inset-0 bg-gradient-to-t from-gray-800/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       {/* Title */}
                       <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500">
-                        <h3 className="text-gym-dark font-bold text-xl mb-2">
-                          {image.title}
-                        </h3>
                         <div className="w-12 h-1 bg-gym-red rounded-full" />
                       </div>
                     </div>

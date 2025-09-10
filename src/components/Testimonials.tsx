@@ -4,22 +4,19 @@ import { Card, CardContent } from "@/components/ui/card";
 const Testimonials = () => {
   const testimonials = [
     {
-      name: "Andrei Popescu",
-      text: "Focus Gym mi-a transformat viața! Nu m-am simțit niciodată mai puternică și mai încrezătoare. Antrenorii sunt extraordinari, iar comunitatea este foarte solidară.",
+      name: "Dulanyi-balogh Anamaria",
+      text: "Dacă cauți o sală de fitness care îmbină facilități moderne, o atmosferă prietenoasă și antrenori cu experiență, atunci FocusGym este locul potrivit. Este mai mult decât o sală de sport; este o comunitate care își sprijină și încurajează membrii pe drumul lor în fitness. Dotările sunt de top și oferă o varietate de echipamente pentru orice tip de exercițiu. Fie că este vorba de antrenament de forță, cardio sau exerciții de flexibilitate, aici găsești tot ce ai nevoie.",
       rating: 5,
-      achievement: "A slăbit 13,6 kg în 6 luni",
     },
     {
-      name: "Mihai Dumitrescu",
-      text: "Cea mai bună investiție pe care am făcut-o pentru sănătatea mea. Varietatea cursurilor mă menține motivată, iar rezultatele vorbesc de la sine.",
-      rating: 5,
-      achievement: "A câștigat 7 kg de masă musculară",
-    },
-    {
-      name: "Ioana Marinescu",
-      text: "Îmi place energia de la Focus Gym. Fiecare antrenament este provocator, dar distractiv. Antrenorii te motivează să dai tot ce ai mai bun.",
+      name: "Gheorghita Eusebiu",
+      text: "Pentru mine, aceasta este cea mai comodă sală de fitness din Sfântu Gheorghe. Îmi place că este curată, are echipamente noi, plata se face doar cu cardul, iar accesul în sală se face pe bază de cod QR. Trebuie menționat că nu există aer condiționat! ...dar asta „ajută” la topirea grăsimilor! :-) Voi reveni cu informații dacă se mai schimbă ceva.",
       rating: 4,
-      achievement: "Fundul meu s-a mărit",
+    },
+    {
+      name: "Ákos Sz.",
+      text: "O sală excelentă – spațioasă, cu aparate de calitate și o atmosferă plăcută. Îmi place că nu este aglomerată și te poți antrena în liniște.",
+      rating: 5,
     },
   ];
 
@@ -57,9 +54,6 @@ const Testimonials = () => {
                   <h4 className="font-bold text-white mb-2">
                     {testimonial.name}
                   </h4>
-                  <p className="text-gym-red text-sm font-semibold">
-                    {testimonial.achievement}
-                  </p>
                 </div>
               </CardContent>
             </Card>

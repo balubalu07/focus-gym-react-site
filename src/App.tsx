@@ -8,6 +8,7 @@ import NotFound from "./pages/NotFound";
 import Terms from "./pages/Terms";
 import Privacy from "./pages/Privacy";
 import Tutorial from "./pages/Tutorial";
+import AllPlans from "./pages/AllPlans";
 
 const queryClient = new QueryClient();
 
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/privacy" element={<Privacy />} />
           <Route path="/tutorial" element={<Tutorial />} />
           <Route path="*" element={<NotFound />} />
+          <Route path="/all-plans" element={<AllPlans />} />
         </Routes>
       </HashRouter>
     </TooltipProvider>
