@@ -10,10 +10,10 @@ const Pricing = () => {
       price: "120 lei",
       period: "/day",
       features: [
+        "Acces la sală de la 07:00-12:00",
         "Acces la echipamente de sală",
         "Acces la vestiare",
         "Acces la aplicația mobilă",
-        "7-12",
       ],
       popular: false,
     },
@@ -119,13 +119,20 @@ const Pricing = () => {
                         ? "bg-gym-red hover:bg-gym-red/80 text-white"
                         : "bg-gray-800 hover:bg-gray-700 text-white"
                     }`}
-                    onClick={() =>
-                      document
-                        .getElementById("contact")
-                        ?.scrollIntoView({ behavior: "smooth" })
-                    }
+                    onClick={() => {
+                      const appSection = document.getElementById("app");
+                      if (appSection) {
+                        const yOffset = -window.innerHeight / 4;
+                        const y =
+                          appSection.getBoundingClientRect().top +
+                          window.pageYOffset +
+                          yOffset;
+
+                        window.scrollTo({ top: y, behavior: "smooth" });
+                      }
+                    }}
                   >
-                    Get Started
+                    Începeți
                   </Button>
                 </CardContent>
               </Card>

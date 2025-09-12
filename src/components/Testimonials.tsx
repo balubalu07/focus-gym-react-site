@@ -4,18 +4,18 @@ import { Card, CardContent } from "@/components/ui/card";
 const Testimonials = () => {
   const testimonials = [
     {
-      name: "Dulanyi-balogh Anamaria",
-      text: "Dacă cauți o sală de fitness care îmbină facilități moderne, o atmosferă prietenoasă și antrenori cu experiență, atunci FocusGym este locul potrivit. Este mai mult decât o sală de sport; este o comunitate care își sprijină și încurajează membrii pe drumul lor în fitness. Dotările sunt de top și oferă o varietate de echipamente pentru orice tip de exercițiu. Fie că este vorba de antrenament de forță, cardio sau exerciții de flexibilitate, aici găsești tot ce ai nevoie.",
+      name: "István",
+      text: "O sală de sport mică, dar excelentă, aproape fără aglomerație, ideală pentru începători sau persoane timide care doresc să înceapă să facă sport.",
       rating: 5,
     },
     {
-      name: "Gheorghita Eusebiu",
-      text: "Pentru mine, aceasta este cea mai comodă sală de fitness din Sfântu Gheorghe. Îmi place că este curată, are echipamente noi, plata se face doar cu cardul, iar accesul în sală se face pe bază de cod QR. Trebuie menționat că nu există aer condiționat! ...dar asta „ajută” la topirea grăsimilor! :-) Voi reveni cu informații dacă se mai schimbă ceva.",
-      rating: 4,
+      name: "Zsolt",
+      text: "Echipată la fel de bine ca și alte săli de sport de dimensiuni medii. Nu este perfectă, dar este perfect adecvată pentru ceea ce vrei să faci acolo. Nu are personal, intrarea se face printr-o aplicație, ceea ce este excelent. Managerul mi-a permis o intrare gratuită, deoarece inițial eram doar în trecere. Acest lucru îmi spune multe despre mentalitatea lor și mă face să revin cu orice altă ocazie pe care o am.",
+      rating: 5,
     },
     {
-      name: "Ákos Sz.",
-      text: "O sală excelentă – spațioasă, cu aparate de calitate și o atmosferă plăcută. Îmi place că nu este aglomerată și te poți antrena în liniște.",
+      name: "Attila",
+      text: "Echipament bun, personal prietenos și flexibil, program de lucru prelungit, recomandat cu căldură.",
       rating: 5,
     },
   ];

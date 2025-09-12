@@ -17,17 +17,17 @@ const AllPlans = () => {
     {
       name: "Morning Pass",
       price: "120 lei",
-      period: "/day",
+      period: "/month",
       features: [
+        "Acces la sală de la 07:00-12:00",
         "Acces la echipamente de sală",
         "Acces la vestiare",
         "Acces la aplicația mobilă",
-        "7-12",
       ],
       popular: false,
     },
     {
-      name: "One Month Pass",
+      name: "Abonament full fittness",
       price: "130 lei",
       period: "/month",
       features: [
@@ -38,7 +38,7 @@ const AllPlans = () => {
       popular: true,
     },
     {
-      name: "Student Pass",
+      name: "Abonament studenti",
       price: "110 lei",
       period: "/month",
       features: [
@@ -49,24 +49,23 @@ const AllPlans = () => {
       popular: false,
     },
     {
-      name: "Weekend Pass",
-      price: "90 lei",
-      period: "/weekend",
+      name: "Abonament 3 luni",
+      price: "350 lei",
+      period: "/3 months",
       features: [
-        "Acces în zilele de weekend",
+        "Acces la echipamente de sală",
         "Acces la vestiare",
         "Acces la aplicația mobilă",
       ],
       popular: false,
     },
     {
-      name: "VIP Pass",
-      price: "250 lei",
-      period: "/month",
+      name: "One day Pass",
+      price: "25 lei",
+      period: "/day",
       features: [
-        "Acces nelimitat",
-        "Acces la vestiare VIP",
-        "Antrenor personal",
+        "Acces la echipamente de sală",
+        "Acces la vestiare",
         "Acces la aplicația mobilă",
       ],
       popular: false,
@@ -78,7 +77,6 @@ const AllPlans = () => {
       <Navigation />
       <div className="pt-20 pb-12">
         <div className="container mx-auto px-4 max-w-6xl">
-          {/* Back Button */}
           <Button
             onClick={() => navigate("/")}
             variant="ghost"
@@ -146,8 +144,11 @@ const AllPlans = () => {
                         ? "bg-gym-red hover:bg-gym-red/80 text-white"
                         : "bg-gray-800 hover:bg-gray-700 text-white"
                     }`}
+                    onClick={() => {
+                      navigate("/", { state: { scrollToApp: true } });
+                    }}
                   >
-                    Get Started
+                    Începeți
                   </Button>
                 </CardContent>
               </Card>
