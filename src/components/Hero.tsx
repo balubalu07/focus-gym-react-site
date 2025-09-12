@@ -16,7 +16,7 @@ const Hero = () => {
       </div>
       <div className="relative z-10 text-center max-w-4xl mx-auto px-4 animate-fade-in">
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-          ELIBEREAȚI-VĂ
+          ELIBERAȚI-VĂ
           <span className="block text-gym-red">POTENȚIALUL</span>
         </h1>
 
