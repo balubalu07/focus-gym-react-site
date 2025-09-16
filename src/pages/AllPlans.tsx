@@ -19,11 +19,11 @@ const AllPlans = () => {
       price: "120 lei",
       period: "/month",
       features: [
+        "Acces pentru 2 persoane",
         "Acces la sală de la 07:00-12:00",
         "Acces la echipamente de sală",
         "Acces la vestiare",
         "Acces la aplicația mobilă",
-        "Acces pentru 2 persoane",
       ],
       popular: false,
     },
