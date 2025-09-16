@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const Pricing = () => {
   const plans = [
     {
-      name: "Morning Pass",
+      name: "Morning Duo Pass",
       price: "120 lei",
       period: "/day",
       features: [
@@ -14,6 +14,7 @@ const Pricing = () => {
         "Acces la echipamente de sală",
         "Acces la vestiare",
         "Acces la aplicația mobilă",
+        "Acces pentru 2 persoane",
       ],
       popular: false,
     },

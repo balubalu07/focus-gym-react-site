@@ -15,7 +15,7 @@ const AllPlans = () => {
 
   const plans = [
     {
-      name: "Morning Pass",
+      name: "Morning Duo Pass",
       price: "120 lei",
       period: "/month",
       features: [
@@ -23,6 +23,7 @@ const AllPlans = () => {
         "Acces la echipamente de sală",
         "Acces la vestiare",
         "Acces la aplicația mobilă",
+        "Acces pentru 2 persoane",
       ],
       popular: false,
     },
