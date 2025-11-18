@@ -16,8 +16,8 @@ const AllPlans = () => {
   const plans = [
     {
       name: "Morning Duo Pass",
-      price: "120 lei",
-      period: "/month",
+      price: "130 lei",
+      period: "4 săptămâni",
       features: [
         "Acces pentru 2 persoane",
         "Acces la sală de la 07:00-12:00",
@@ -29,8 +29,8 @@ const AllPlans = () => {
     },
     {
       name: "Abonament full fittness",
-      price: "130 lei",
-      period: "/month",
+      price: "140 lei",
+      period: "4 săptămâni",
       features: [
         "Acces la echipamente de sală",
         "Acces la vestiare",
@@ -40,8 +40,8 @@ const AllPlans = () => {
     },
     {
       name: "Abonament studenti",
-      price: "110 lei",
-      period: "/month",
+      price: "120 lei",
+      period: "4 săptămâni",
       features: [
         "Acces la echipamente de sală",
         "Acces la vestiare",
@@ -51,8 +51,8 @@ const AllPlans = () => {
     },
     {
       name: "Abonament 3 luni",
-      price: "350 lei",
-      period: "/3 months",
+      price: "375 lei",
+      period: "12 săptămâni",
       features: [
         "Acces la echipamente de sală",
         "Acces la vestiare",
@@ -62,8 +62,8 @@ const AllPlans = () => {
     },
     {
       name: "One day Pass",
-      price: "25 lei",
-      period: "/day",
+      price: "30 lei",
+      period: "1 zi",
       features: [
         "Acces la echipamente de sală",
         "Acces la vestiare",
