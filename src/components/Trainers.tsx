@@ -1,17 +1,10 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import trainer1 from "@/assets/trainer1.jpeg";
-import trainer2 from "@/assets/trainer2.jpeg";
 import trainer3 from "@/assets/trainer3.jpeg";
 import trainer4 from "@/assets/trainer4.jpeg";
 const Trainers = () => {
   const trainers = [
-    {
-      name: "Mihail Panait",
-      experience: "3 years",
-      bio: "Pasionat de sport și sănătate, te ajut să slăbești, să câștigi masă musculară sau să menții un stil de viață activ. Ofer antrenamente personalizate, sfaturi de nutriție și motivația de care ai nevoie pentru rezultate reale și durabile.",
-      image: trainer2,
-    },
     {
       name: "Sandu Alexandru",
       experience: "13 years",
