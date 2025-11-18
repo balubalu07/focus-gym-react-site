@@ -7,8 +7,8 @@ const Pricing = () => {
   const plans = [
     {
       name: "Morning Duo Pass",
-      price: "120 lei",
-      period: "/day",
+      price: "130 lei",
+      period: "4 săptămâni",
       features: [
         "Acces pentru 2 persoane",
         "Acces la sală de la 07:00-12:00",
@@ -20,8 +20,8 @@ const Pricing = () => {
     },
     {
       name: "One Month Pass",
-      price: "130 lei",
-      period: "/month",
+      price: "140 lei",
+      period: "4 săptămâni",
       features: [
         "Acces la echipamente de sală",
         "Acces la vestiare",
@@ -31,8 +31,8 @@ const Pricing = () => {
     },
     {
       name: "Student Pass",
-      price: "110 lei",
-      period: "/month",
+      price: "120 lei",
+      period: "4 săptămâni",
       features: [
         "Acces la echipamente de sală",
         "Acces la vestiare",
