@@ -11,12 +11,12 @@ const Trainers = () => {
       bio: "Sunt pasionat de bodybuilding și am concurat la nivel competițional. Știu ce înseamnă să-ți transformi corpul, iar eu te pot ghida pas cu pas să-ți atingi obiectivele. Fără scurtături, doar rezultate reale și un corp de care să fii mândru.",
       image: trainer1,
     },
-    {
-      name: "Antal Petre",
-      experience: "7 years",
-      bio: "Pentru mine, fitnessul înseamnă mai mult decât alergare și aparate  înseamnă energie, echilibru și progres real. La FocusGym te ghidez să-ți crești nivelul de energie, să-ți construiești un trup armonios și să-ți depășești limitele, prin antrenamente eficiente și motivate.",
-      image: trainer3,
-    },
+    // {
+    //   name: "Antal Petre",
+    //   experience: "7 years",
+    //   bio: "Pentru mine, fitnessul înseamnă mai mult decât alergare și aparate  înseamnă energie, echilibru și progres real. La FocusGym te ghidez să-ți crești nivelul de energie, să-ți construiești un trup armonios și să-ți depășești limitele, prin antrenamente eficiente și motivate.",
+    //   image: trainer3,
+    // },
     {
       name: "Miklos Ciocîrlan",
       experience: "4 years",
