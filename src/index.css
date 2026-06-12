@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. */
+/* ------------------------------------------------------------------ */
+/*  FOCUS GYM design system — "Midnight Iron"                          */
+/*  Near-black iron, blood-red accent, bone-white type.                */
+/*  Display: Anton (condensed poster caps) · Body: Manrope             */
+/* ------------------------------------------------------------------ */
 
 @layer base {
   :root {
@@ -36,69 +40,200 @@
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Focus Gym tokens */
+    --fg-ink: #0a0a0c;
+    --fg-surface: #121216;
+    --fg-bone: #f1ece4;
+    --fg-blood: #e02b3d;
+    --fg-wine: #6e1423;
+    --fg-line: rgba(241, 236, 228, 0.1);
   }
 
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-}
-
-@layer base {
   * {
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
     @apply bg-background text-foreground;
+    font-family: "Manrope", sans-serif;
+    background-color: var(--fg-ink);
+    color: var(--fg-bone);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: var(--fg-blood);
+    color: var(--fg-bone);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--fg-ink);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--fg-wine);
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--fg-blood);
   }
 }
 
+@layer components {
+  .font-display {
+    font-family: "Anton", "Arial Narrow", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+  }
+
+  /* hollow "ghost" type for oversized backdrop words */
+  .text-ghost {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(241, 236, 228, 0.14);
+  }
+  .text-ghost-red {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(224, 43, 61, 0.35);
+  }
+  .text-ghost-dark {
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(10, 10, 12, 0.18);
+  }
+
+  /* film grain overlay, mounted once in App */
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    pointer-events: none;
+    opacity: 0.5;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+    background-size: 256px 256px;
+  }
+
+  /* underline that grows from the left on hover */
+  .link-grow {
+    position: relative;
+  }
+  .link-grow::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 2px;
+    width: 100%;
+    background: var(--fg-blood);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.35s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .link-grow:hover::after,
+  .link-grow:focus-visible::after {
+    transform: scaleX(1);
+  }
+
+  /* primary CTA: sliding red fill over outlined bone */
+  .btn-blood {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    overflow: hidden;
+    background: var(--fg-blood);
+    color: var(--fg-bone);
+    isolation: isolate;
+    transition: color 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .btn-blood::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--fg-bone);
+    transform: translateY(101%);
+    transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .btn-blood:hover {
+    color: var(--fg-ink);
+  }
+  .btn-blood:hover::before {
+    transform: translateY(0);
+  }
+
+  .btn-ghost-line {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    overflow: hidden;
+    border: 1px solid var(--fg-line);
+    color: var(--fg-bone);
+    isolation: isolate;
+    transition: color 0.4s cubic-bezier(0.65, 0, 0.35, 1),
+      border-color 0.4s;
+  }
+  .btn-ghost-line::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--fg-blood);
+    transform: translateY(101%);
+    transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+  }
+  .btn-ghost-line:hover {
+    border-color: var(--fg-blood);
+  }
+  .btn-ghost-line:hover::before {
+    transform: translateY(0);
+  }
+
+  /* clip wrapper for GSAP line reveals */
+  .reveal-line {
+    display: block;
+    overflow: hidden;
+  }
+  .reveal-line > span {
+    display: block;
+    will-change: transform;
+  }
+
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    will-change: transform;
+  }
+}
+
+@layer utilities {
+  .bg-ink {
+    background-color: var(--fg-ink);
+  }
+  .bg-surface {
+    background-color: var(--fg-surface);
+  }
+  .bg-bone {
+    background-color: var(--fg-bone);
+  }
+  .text-ink {
+    color: var(--fg-ink);
+  }
+  .text-bone {
+    color: var(--fg-bone);
+  }
+  .text-blood {
+    color: var(--fg-blood);
+  }
+  .border-line {
+    border-color: var(--fg-line);
+  }
+}

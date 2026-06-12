@@ -3,94 +3,75 @@ import { useNavigate } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
-import { Button } from "@/components/ui/button";
+import { useReveal } from "@/hooks/useReveal";
+import { useLanguage } from "@/i18n/LanguageContext";
 import phone1 from "@/assets/tutorial1.png";
 import phone2 from "@/assets/tutorial2.png";
 import phone3 from "@/assets/tutorial3.png";
+
+const STEP_IMAGES = [phone1, phone2, phone3];
+
 const Tutorial = () => {
   const navigate = useNavigate();
+  const { t, lang } = useLanguage();
+  const scope = useReveal<HTMLDivElement>();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 0 });
   }, []);
 
   return (
-    <div className="min-h-screen bg-gym-dark">
+    <div className="min-h-screen bg-ink text-bone">
       <Navigation />
-      <div className="pt-20 pb-12">
-        <div className="container mx-auto px-4 max-w-6xl">
-          <Button
+      <div ref={scope} key={lang} className="pt-32 pb-24">
+        <div className="mx-auto max-w-[1400px] px-5 md:px-10">
+          <button
             onClick={() => navigate("/")}
-            variant="ghost"
-            className="mb-6 text-white hover:text-gym-red hover:bg-white/10 p-2"
+            className="link-grow inline-flex items-center gap-2 text-bone/70 hover:text-bone mb-10 transition-colors"
           >
-            <ArrowLeft className="w-5 h-5 mr-2" />
-            Back to Home
-          </Button>
+            <ArrowLeft className="w-4 h-4" />
+            {t.tutorial.back}
+          </button>
 
-          <h1 className="text-4xl font-bold text-white mb-12 text-center">
-            Tutorial – Cum să folosești aplicația
+          <h1
+            data-reveal
+            className="font-display text-4xl md:text-6xl leading-[0.95] mb-16 md:mb-24"
+          >
+            {t.tutorial.title}
           </h1>
 
-          <div className="space-y-20">
-            <section className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <img
-                  src={phone1}
-                  alt="Step 1"
-                  className="rounded-xl shadow-lg"
-                />
-              </div>
-              <div className="text-gray-300">
-                <h2 className="text-2xl font-semibold text-white mb-4">
-                  1. Descărcați și instalați aplicația
-                </h2>
-                <p className="leading-relaxed">
-                  Găsiți aplicația în App Store sau Google Play. După instalare,
-                  deschideți aplicația și creați un cont pentru a începe
-                  călătoria voastră fitness.
-                </p>
-              </div>
-            </section>
-
-            <section className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="order-2 lg:order-1 text-gray-300">
-                <h2 className="text-2xl font-semibold text-white mb-4">
-                  2. Găsiți sala noastră de sport
-                </h2>
-                <p className="leading-relaxed">
-                  Introduceți codul focusgym în câmpul de text și apăsați
-                  butonul „DEVINO MEMBRU”.
-                </p>
-              </div>
-              <div className="order-1 lg:order-2">
-                <img
-                  src={phone2}
-                  alt="Step 2"
-                  className="rounded-xl shadow-lg"
-                />
-              </div>
-            </section>
-
-            <section className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <img
-                  src={phone3}
-                  alt="Step 3"
-                  className="rounded-xl shadow-lg"
-                />
-              </div>
-              <div className="text-gray-300">
-                <h2 className="text-2xl font-semibold text-white mb-4">
-                  3. Informații personale
-                </h2>
-                <p className="leading-relaxed">
-                  Completați informațiile personale și setați obiectivele de
-                  fitness. Acest lucru ne ajută să vă oferim recomandări
-                  personalizate.
-                </p>
-              </div>
-            </section>
+          <div className="space-y-16 md:space-y-32">
+            {t.tutorial.steps.map((step, index) => (
+              <section
+                key={index}
+                data-reveal
+                className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center"
+              >
+                <div
+                  className={`relative border border-line bg-surface p-4 md:p-6 mt-8 ${
+                    index % 2 === 1 ? "lg:order-2" : ""
+                  }`}
+                >
+                  <span className="absolute -top-8 left-3 md:-top-9 md:left-4 font-display text-6xl md:text-7xl text-ghost-red select-none">
+                    {String(index + 1).padStart(2, "0")}
+                  </span>
+                  <img
+                    src={STEP_IMAGES[index]}
+                    alt={step.title}
+                    loading="lazy"
+                    className="mx-auto w-auto max-h-[55vh] md:max-h-[70vh] object-contain"
+                  />
+                </div>
+                <div className={index % 2 === 1 ? "lg:order-1" : ""}>
+                  <h2 className="font-display text-3xl md:text-4xl mb-6">
+                    {step.title}
+                  </h2>
+                  <p className="text-bone/70 text-lg leading-relaxed max-w-xl">
+                    {step.text}
+                  </p>
+                </div>
+              </section>
+            ))}
           </div>
         </div>
       </div>

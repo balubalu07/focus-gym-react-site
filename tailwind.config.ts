@@ -93,6 +93,15 @@ export default {
         },
         "gym-dark": "#0b0c0e",
         "gym-red": "#6e1423",
+        ink: "#0a0a0c",
+        surface: "#121216",
+        bone: "#f1ece4",
+        blood: "#e02b3d",
+        wine: "#6e1423",
+      },
+      fontFamily: {
+        display: ["Anton", "Arial Narrow", "sans-serif"],
+        body: ["Manrope", "sans-serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

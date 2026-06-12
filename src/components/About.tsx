@@ -1,81 +1,72 @@
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import { useReveal } from "@/hooks/useReveal";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const About = () => {
+  const { t, lang } = useLanguage();
+  const scope = useReveal<HTMLElement>();
+
   return (
-    <section id="about" className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold text-gym-dark mb-6">
-            Despre noi -{" "}
-            <span className="text-gym-red">Povestea Focus Gym</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            {/* Totul a început cu o întrebare simplă, dar puternică:
-„Dacă nu găsim o sală în care să ne simțim în siguranță și acceptați, de ce să nu o construim chiar noi?”
-Ani de zile, eu și fratele meu, Bogdan, am trecut pragul a nenumărate săli de sport.
-Și, de fiecare dată, simțeam că lipsește ceva esențial: respectul reciproc, atmosfera relaxată, sentimentul că aparții acelui loc.
-Prea des, sala devenea un spațiu intimidant, nu o încurajare.
-Unii renunțau nu pentru că nu puteau… ci pentru că nu se simțeau bineveniți.
-Așa s-a născut ideea Focus Gym – un loc fără presiune, fără bariere, unde fiecare om este binevenit exact așa cum este. */}
-            Am creat Focus Gym dintr-o nevoie simplă: un loc unde să te simți
-            binevenit, respectat și în siguranță. Nu presiune, nu bariere – doar
-            o comunitate în care fiecare aparține.
-          </p>
+    <section
+      id="about"
+      ref={scope}
+      key={lang}
+      className="relative bg-bone text-ink py-28 md:py-40 overflow-hidden"
+    >
+      {/* oversized ghost word in the background */}
+      <span
+        aria-hidden
+        className="font-display text-ghost-dark absolute -top-6 left-0 text-[26vw] leading-none select-none pointer-events-none"
+      >
+        FOCUS
+      </span>
+
+      <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
+        <div className="grid lg:grid-cols-12 gap-10 mb-20 md:mb-28">
+          <div className="lg:col-span-7">
+            <p
+              data-reveal
+              className="text-blood font-bold text-xs tracking-[0.45em] uppercase mb-6"
+            >
+              01 — {t.nav.about}
+            </p>
+            <h2
+              data-reveal
+              className="font-display text-5xl md:text-7xl leading-[0.95]"
+            >
+              {t.about.headingPre}{" "}
+              <span className="text-blood">{t.about.headingAccent}</span>
+            </h2>
+          </div>
+          <div className="lg:col-span-5 flex items-end">
+            <p
+              data-reveal
+              className="text-ink/70 text-lg md:text-xl leading-relaxed"
+            >
+              {t.about.intro}
+            </p>
+          </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          <Card className="text-center p-6 border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-            <CardContent className="pt-6">
-              <div className="w-16 h-16 bg-gym-red rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-white text-2xl font-bold">💪</span>
-              </div>
-              <h3 className="text-xl font-bold text-gym-dark mb-4">
-                Dual Strength Fitness
+        {/* numbered editorial rows instead of cards */}
+        <div className="border-t border-ink/15">
+          {t.about.cards.map((card, i) => (
+            <div
+              key={i}
+              data-reveal
+              className="group grid md:grid-cols-12 gap-4 md:gap-10 py-10 md:py-14 border-b border-ink/15 transition-colors duration-500 hover:bg-ink hover:text-bone px-2 md:px-6"
+            >
+              <span className="md:col-span-2 font-display text-3xl md:text-4xl text-blood">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <h3 className="md:col-span-4 font-display text-2xl md:text-3xl leading-tight">
+                {card.title}
               </h3>
-              <p className="text-gray-600">
-                Firma noastră se numește Dual Strength Fitness dintr-un motiv
-                simplu, dar profund: Credem că puterea adevărată vine din
-                echilibrul între corp și minte.
+              <p className="md:col-span-6 text-base md:text-lg leading-relaxed opacity-70 group-hover:opacity-90 transition-opacity duration-500">
+                {card.text}
               </p>
-            </CardContent>
-          </Card>
-
-          <Card className="text-center p-6 border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-            <CardContent className="pt-6">
-              <div className="w-16 h-16 bg-gym-red rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-white text-2xl font-bold">🏆</span>
-              </div>
-              <h3 className="text-xl font-bold text-gym-dark mb-4">
-                Valorile noastre
-              </h3>
-              <p className="text-gray-600">
-                Incluziune – Fiecare persoană este binevenită, indiferent de
-                vârstă, greutate, formă fizică sau experiență. Pozitivitate –
-                Promovăm o atmosferă caldă, fără presiune, unde ești încurajat,
-                nu comparat. Respect și autenticitate – Ne pasă. Ne uităm în
-                ochii oamenilor și îi vedem așa cum sunt, nu prin filtre sau
-                standarde false.
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="text-center p-6 border-none shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-            <CardContent className="pt-6">
-              <div className="w-16 h-16 bg-gym-red rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="text-white text-2xl font-bold">🤝</span>
-              </div>
-              <h3 className="text-xl font-bold text-gym-dark mb-4">
-                Ce înseamnă Focus Gym pentru noi?
-              </h3>
-              <p className="text-gray-600">
-                Este comunitatea pe care ne-am dorit-o dintotdeauna, dar nu am
-                găsit-o. Este spațiul sigur unde vii nu doar să te antrenezi, ci
-                să respiri, să te regăsești, să crești. Este vocea care îți
-                spune „poți”, atunci când toți ceilalți spun „nu ești pregătit”.
-              </p>
-            </CardContent>
-          </Card>
+            </div>
+          ))}
         </div>
       </div>
     </section>

@@ -1,68 +1,78 @@
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import { useReveal } from "@/hooks/useReveal";
+import { useLanguage } from "@/i18n/LanguageContext";
 import trainer1 from "@/assets/trainer1.jpeg";
-import trainer3 from "@/assets/trainer3.jpeg";
 import trainer4 from "@/assets/trainer4.jpeg";
+
+const TRAINER_IMAGES = [trainer1, trainer4];
+
 const Trainers = () => {
-  const trainers = [
-    {
-      name: "Sandu Alexandru",
-      experience: "13 years",
-      bio: "Sunt pasionat de bodybuilding și am concurat la nivel competițional. Știu ce înseamnă să-ți transformi corpul, iar eu te pot ghida pas cu pas să-ți atingi obiectivele. Fără scurtături, doar rezultate reale și un corp de care să fii mândru.",
-      image: trainer1,
-    },
-    // {
-    //   name: "Antal Petre",
-    //   experience: "7 years",
-    //   bio: "Pentru mine, fitnessul înseamnă mai mult decât alergare și aparate  înseamnă energie, echilibru și progres real. La FocusGym te ghidez să-ți crești nivelul de energie, să-ți construiești un trup armonios și să-ți depășești limitele, prin antrenamente eficiente și motivate.",
-    //   image: trainer3,
-    // },
-    {
-      name: "Miklos Ciocîrlan",
-      experience: "4 years",
-      bio: "Te ajut să devii mai fit, mai sănătos și să te miști fără dureri, prin antrenamente personalizate la FocusGym. Pun accent pe mobilitate, stretching și întărirea mușchilor stabilizatori, ca să ai rezultate durabile și o viață plină de energie. Vino să descoperi antrenamente eficiente, într-o atmosferă prietenoasă și motivațională.",
-      image: trainer4,
-    },
-  ];
+  const { t, lang } = useLanguage();
+  const scope = useReveal<HTMLElement>();
 
   return (
-    <section id="trainers" className="py-20 bg-gym-dark text-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Faceți cunoștință cu <span className="text-gym-red">Antrenori</span>
+    <section
+      id="trainers"
+      ref={scope}
+      key={lang}
+      className="relative bg-ink text-bone py-28 md:py-40 overflow-hidden"
+    >
+      <span
+        aria-hidden
+        className="font-display text-ghost absolute top-10 right-0 text-[20vw] leading-none select-none pointer-events-none"
+      >
+        TEAM
+      </span>
+
+      <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
+        <div className="max-w-3xl mb-16 md:mb-24">
+          <p
+            data-reveal
+            className="text-blood font-bold text-xs tracking-[0.45em] uppercase mb-6"
+          >
+            02 — {t.nav.trainers}
+          </p>
+          <h2
+            data-reveal
+            className="font-display text-5xl md:text-7xl leading-[0.95] mb-6"
+          >
+            {t.trainers.headingPre}{" "}
+            <span className="text-blood">{t.trainers.headingAccent}</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Antrenorii noștri certificați sunt aici pentru a vă ghida, motiva și
-            ajuta să vă atingeți obiectivele de fitness.
+          <p data-reveal className="text-bone/60 text-lg md:text-xl">
+            {t.trainers.subtitle}
           </p>
         </div>
 
-        {/* Horizontal scroll container */}
-        <div className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory">
-          {trainers.map((trainer, index) => (
-            <Card
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-14">
+          {t.trainers.list.map((trainer, index) => (
+            <article
               key={index}
-              className="flex-none w-64 md:w-72 lg:w-80 bg-white/10 backdrop-blur-sm text-white border-gym-red/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105 snap-center"
+              data-reveal
+              className="group relative border border-line bg-surface overflow-hidden"
             >
-              <CardContent className="p-6 text-center flex flex-col">
-                <div className="w-32 h-32 rounded-full mx-auto mb-6 overflow-hidden">
-                  <img
-                    src={trainer.image}
-                    alt={trainer.name}
-                    className="w-full h-full object-cover"
-                  />
+              <div className="relative aspect-[4/4.6] overflow-hidden">
+                <img
+                  src={TRAINER_IMAGES[index]}
+                  alt={trainer.name}
+                  loading="lazy"
+                  className="h-full w-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[900ms] ease-out"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8 flex items-end justify-between gap-4">
+                  <h3 className="font-display text-3xl md:text-4xl leading-none">
+                    {trainer.name}
+                  </h3>
+                  <span className="shrink-0 bg-blood text-bone text-xs font-bold tracking-[0.15em] uppercase px-3 py-2">
+                    {trainer.experience} {t.trainers.experienceSuffix}
+                  </span>
                 </div>
-                <h3 className="text-xl font-bold mb-2">{trainer.name}</h3>
-                {/* <p className="text-gym-red font-semibold mb-2">
-                  {trainer.specialty}
-                </p> */}
-                <p className="text-gym-red font-semibold mb-2">
-                  {trainer.experience} experience
-                </p>
-                <p className="text-gray-300 text-sm">{trainer.bio}</p>
-              </CardContent>
-            </Card>
+              </div>
+              <p className="p-6 md:p-8 text-bone/60 leading-relaxed border-t border-line">
+                {trainer.bio}
+              </p>
+              <span className="pointer-events-none absolute inset-x-0 top-0 h-[3px] bg-blood scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-500" />
+            </article>
           ))}
         </div>
       </div>

@@ -1,62 +1,72 @@
 import React from "react";
-import { Card, CardContent } from "@/components/ui/card";
+import { useReveal } from "@/hooks/useReveal";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Testimonials = () => {
-  const testimonials = [
-    {
-      name: "István",
-      text: "O sală de sport mică, dar excelentă, aproape fără aglomerație, ideală pentru începători sau persoane timide care doresc să înceapă să facă sport.",
-      rating: 5,
-    },
-    {
-      name: "Zsolt",
-      text: "Echipată la fel de bine ca și alte săli de sport de dimensiuni medii. Nu este perfectă, dar este perfect adecvată pentru ceea ce vrei să faci acolo. Nu are personal, intrarea se face printr-o aplicație, ceea ce este excelent. Managerul mi-a permis o intrare gratuită, deoarece inițial eram doar în trecere. Acest lucru îmi spune multe despre mentalitatea lor și mă face să revin cu orice altă ocazie pe care o am.",
-      rating: 5,
-    },
-    {
-      name: "Attila",
-      text: "Echipament bun, personal prietenos și flexibil, program de lucru prelungit, recomandat cu căldură.",
-      rating: 5,
-    },
-  ];
+  const { t, lang } = useLanguage();
+  const scope = useReveal<HTMLElement>();
 
   return (
-    <section id="testimonials" className="py-20 bg-gym-dark text-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Povești de <span className="text-gym-red">Succes</span>
+    <section
+      id="testimonials"
+      ref={scope}
+      key={lang}
+      className="relative bg-ink text-bone py-28 md:py-40 overflow-hidden"
+    >
+      <span
+        aria-hidden
+        className="font-display text-ghost-red absolute -bottom-10 left-0 text-[22vw] leading-none select-none pointer-events-none"
+      >
+        FOCUS
+      </span>
+
+      <div className="relative mx-auto max-w-[1600px] px-5 md:px-10">
+        <div className="max-w-3xl mb-16 md:mb-24">
+          <p
+            data-reveal
+            className="text-blood font-bold text-xs tracking-[0.45em] uppercase mb-6"
+          >
+            04 — {t.nav.testimonials}
+          </p>
+          <h2
+            data-reveal
+            className="font-display text-5xl md:text-7xl leading-[0.95] mb-6"
+          >
+            {t.testimonials.headingPre}{" "}
+            <span className="text-blood">{t.testimonials.headingAccent}</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Află poveștile membrilor noștri care și-au transformat viața la
-            Focus Gym.
+          <p data-reveal className="text-bone/60 text-lg md:text-xl">
+            {t.testimonials.subtitle}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((testimonial, index) => (
-            <Card
+        <div className="grid md:grid-cols-3 gap-6 lg:gap-10 items-start">
+          {t.testimonials.list.map((testimonial, index) => (
+            <blockquote
               key={index}
-              className="bg-white/10 backdrop-blur-sm border-gym-red/20 hover:bg-white/20 transition-all duration-300 transform hover:scale-105"
+              data-reveal
+              className={`group relative border border-line bg-surface p-8 md:p-10 transition-colors duration-500 hover:border-blood/60 ${
+                index === 1 ? "md:-mt-10" : ""
+              }`}
             >
-              <CardContent className="p-6 text-center">
-                <div className="flex justify-center mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <span key={i} className="text-gym-red text-xl">
-                      ★
-                    </span>
-                  ))}
-                </div>
-                <p className="text-gray-200 mb-6 italic">
-                  "{testimonial.text}"
-                </p>
-                <div className="border-t border-gym-red/20 pt-4">
-                  <h4 className="font-bold text-white mb-2">
-                    {testimonial.name}
-                  </h4>
-                </div>
-              </CardContent>
-            </Card>
+              <span
+                aria-hidden
+                className="font-display text-7xl text-blood/80 leading-none block mb-4 select-none"
+              >
+                “
+              </span>
+              <p className="text-bone/80 leading-relaxed mb-8">
+                {testimonial.text}
+              </p>
+              <footer className="flex items-center justify-between border-t border-line pt-5">
+                <cite className="not-italic font-display text-xl">
+                  {testimonial.name}
+                </cite>
+                <span className="text-blood tracking-[0.2em]">
+                  {"★".repeat(testimonial.rating)}
+                </span>
+              </footer>
+            </blockquote>
           ))}
         </div>
       </div>
